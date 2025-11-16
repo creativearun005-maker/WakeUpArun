@@ -30,25 +30,22 @@ jobs:
         run: pip install buildozer cython
 
       - name: Install Android cmdline-tools and set up sdkmanager
-        run: |
-         mkdir -p $HOME/android-sdk/cmdline-tools
-         cd $HOME/android-sdk
-         mkdir -p cmdline-tools/latest
-         cd cmdline-tools
-         wget https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip -O tools.zip
-         unzip tools.zip -d latest
+  run: |
+    mkdir -p $HOME/android-sdk/cmdline-tools
+    cd $HOME/android-sdk/cmdline-tools
+    wget https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip -O tools.zip
+    unzip tools.zip
+    mv cmdline-tools/* latest/
+    rm -rf cmdline-tools
 
+    mkdir -p $HOME/android-sdk/tools/bin
+    ln -sf $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager $HOME/android-sdk/tools/bin/sdkmanager
 
-         mkdir -p $HOME/android-sdk/tools/bin
-         ln -sf $HOME/android-sdk/cmdline-tools/latest/cmdline-tools/bin/sdkmanager $HOME/android-sdk/tools/bin/sdkmanager
-
-
-         export ANDROID_SDK_ROOT=$HOME/android-sdk
-         export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/cmdline-tools/bin
-
-
-         yes | sdkmanager --licenses
-         sdkmanager "build-tools;30.0.3" "build-tools;36.1.0"
+    export ANDROID_SDK_ROOT=$HOME/android-sdk
+    export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
+    yes | sdkmanager --licenses
+    sdkmanager "build-tools;30.0.3" "build-tools;36.1.0"
+"
 
 
 
