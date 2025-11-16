@@ -18,6 +18,10 @@ jobs:
         with:
           python-version: '3.10'
 
+      - name: Clear python-for-android cache
+        run: rm -rf .buildozer/android/platform/python-for-android
+
+
       - name: Upgrade Buildozer
         run: pip install --upgrade buildozer
 
