@@ -24,7 +24,7 @@ jobs:
          sudo apt-get install -y \
          git zip unzip openjdk-17-jdk python3-pip python3-setuptools python3-wheel \
          build-essential pkg-config libffi-dev libssl-dev libsqlite3-dev zlib1g-dev \
-         automake autoconf libtool m4 gettext dh-autoconf
+         automake autoconf libtool m4 gettext 
 
       - name: Install buildozer and Cython
         run: pip install buildozer cython
