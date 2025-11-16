@@ -35,6 +35,7 @@ jobs:
          cd $HOME/android-sdk/cmdline-tools
          wget https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip -O tools.zip
          unzip tools.zip
+         mkdir -p latest
          mv cmdline-tools/* latest/
          rm -rf cmdline-tools
 
