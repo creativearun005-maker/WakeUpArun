@@ -46,6 +46,7 @@ jobs:
          export ANDROID_SDK_ROOT=$HOME/android-sdk
          export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/cmdline-tools/bin
 
+
          yes | sdkmanager --licenses
          sdkmanager "build-tools;30.0.3" "build-tools;36.1.0"
 
