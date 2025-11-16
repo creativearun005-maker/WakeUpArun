@@ -25,6 +25,10 @@ jobs:
       - name: Upgrade Buildozer
         run: pip install --upgrade buildozer
 
+      - name: Install latest python-for-android from GitHub
+        run: pip install git+https://github.com/kivy/python-for-android.git
+
+
       - name: Install system dependencies
         run: |
          sudo apt-get update
