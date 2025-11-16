@@ -33,6 +33,9 @@ jobs:
          wget https://dl.google.com/android/repository/commandlinetools-linux-8092744_latest.zip -O tools.zip
          unzip tools.zip
          mv cmdline-tools latest
+         mkdir -p $HOME/android-sdk/tools/bin
+         ln -sf $HOME/android-sdk/cmdline-tools/latest/bin/sdkmanager $HOME/android-sdk/tools/bin/sdkmanager
+
          export ANDROID_SDK_ROOT=$HOME/android-sdk
          export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
          yes | sdkmanager --licenses
